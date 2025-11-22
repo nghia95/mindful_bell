@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Bell</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Mindful Bell</h1>
+
+        <div class="setting-group">
+            <label for="interval">Interval (minutes)</label>
+            <select id="interval">
+                <option value="5">5 minutes</option>
+                <option value="10">10 minutes</option>
+                <option value="15">15 minutes</option>
+                <option value="20" selected>20 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="45">45 minutes</option>
+                <option value="60">60 minutes</option>
+            </select>
+        </div>
+
+        <div class="setting-group">
+            <label for="volume">Volume: <span id="volume-value">80%</span></label>
+            <input type="range" id="volume" min="0" max="1" step="0.1" value="0.8">
+        </div>
+
+        <button id="test-btn">Test Bell</button>
+
+        <div id="status" class="hidden">Saved!</div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
