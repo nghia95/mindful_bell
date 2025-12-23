@@ -1,30 +1,35 @@
-# Mindful Bell Extension Walkthrough
+# Mindful Bell Chrome Extension
 
-The **Mindful Bell** extension has been successfully created! It uses the Chrome `offscreen` API to play a synthesized "Buddhism Bell" sound at user-defined intervals.
+A Chrome extension that plays a calming Buddhism bell sound at regular intervals to help you stay mindful throughout the day.
 
 ## Features
-- **Synthesized Bell Sound**: No external audio files; the sound is generated using the Web Audio API for a pure, customizable tone.
-- **Adjustable Interval**: Choose from 5, 10, 15, 20, 30, 45, or 60 minutes.
-- **Volume Control**: Adjust the volume of the bell directly from the popup.
-- **Test Button**: Preview the sound instantly.
 
-## Installation Instructions
+- **Multiple Bell Sounds**: Choose between 1, 2, or 3 bell sounds per interval
+- **Adjustable Interval**: Select from 5, 10, 15, 20, 30, 45, or 60 minutes
+- **Volume Control**: Adjust the bell volume using a slider
+- **Test Button**: Preview the bell sound instantly
+- **Stop Button**: Immediately stop any playing sound
 
-1.  Open Google Chrome and navigate to `chrome://extensions/`.
-2.  Enable **Developer mode** (toggle in the top-right corner).
-3.  Click **Load unpacked**.
-4.  Select the directory: `/Users/nghiale/Desktop/Study/mindful_bell`.
+## Installation
+
+1. Open Google Chrome and navigate to `chrome://extensions/`
+2. Enable **Developer mode** (toggle in the top-right corner)
+3. Click **Load unpacked**
+4. Select the `mindful_bell` directory
 
 ## How to Use
 
-1.  Click the **Mindful Bell** icon in the Chrome toolbar.
-2.  **Set Interval**: Select your preferred time interval (default is 20 minutes).
-3.  **Set Volume**: Adjust the slider to your liking.
-4.  **Test**: Click "Test Bell" to hear the sound immediately.
-5.  The extension will now run in the background and ring the bell at the specified interval.
+1. Click the **Mindful Bell** icon in the Chrome toolbar
+2. **Set Interval**: Select your preferred time interval (default: 20 minutes)
+3. **Number of Sounds**: Choose how many bell sounds to play (1, 2, or 3)
+4. **Set Volume**: Adjust the slider to your liking
+5. **Test**: Click "Test Bell" to hear the sound immediately
+6. **Stop**: Click "Stop Bell" to silence any currently playing sound
+7. The extension runs in the background and rings the bell at the specified interval
 
-## Verification
-- [x] **Manifest V3 Compliance**: Uses `service_worker` and `offscreen` API.
-- [x] **Audio Synthesis**: `offscreen.js` generates a complex bell tone using oscillators.
-- [x] **Settings Persistence**: `popup.js` saves/loads settings to `chrome.storage.local`.
-- [x] **Timer Logic**: `background.js` uses `chrome.alarms` to schedule the bell.
+## Technical Details
+
+- **Manifest V3**: Uses service worker and offscreen API for audio playback
+- **Audio Files**: `1_sound_bell.mp3`, `2_sound_bell.mp3`, `3_sound_bell.mp3`
+- **Settings Persistence**: Settings are saved to `chrome.storage.local`
+- **Timer**: Uses `chrome.alarms` API for reliable background scheduling
