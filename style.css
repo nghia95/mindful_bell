@@ -38,6 +38,15 @@ select, input[type="range"] {
   border-radius: 4px;
 }
 
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.button-group button {
+  flex: 1;
+}
+
 button {
   background-color: #8d6e63; /* Earthy tone */
   color: white;
@@ -51,6 +60,14 @@ button {
 
 button:hover {
   background-color: #795548;
+}
+
+.stop-btn {
+  background-color: #d32f2f; /* Red for stop */
+}
+
+.stop-btn:hover {
+  background-color: #b71c1c;
 }
 
 #status {

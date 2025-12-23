@@ -29,6 +29,8 @@ chrome.storage.onChanged.addListener(async (changes, area) => {
 chrome.runtime.onMessage.addListener(async (msg) => {
     if (msg.type === 'TEST_SOUND') {
         await playSound();
+    } else if (msg.type === 'STOP_SOUND') {
+        await stopSound();
     }
 });
 
@@ -47,15 +49,26 @@ async function setupAlarm() {
 }
 
 async function playSound() {
-    const data = await chrome.storage.local.get(['volume']);
+    const data = await chrome.storage.local.get(['volume', 'bellSounds']);
     const volume = data.volume !== undefined ? data.volume : 0.8;
+    const bellSounds = data.bellSounds || 3; // Default 3 sounds
 
     await createOffscreenDocument();
 
     // Send message to offscreen document to play audio
     chrome.runtime.sendMessage({
         type: 'PLAY_BELL',
-        volume: volume
+        volume: volume,
+        bellSounds: bellSounds
+    });
+}
+
+async function stopSound() {
+    await createOffscreenDocument();
+
+    // Send message to offscreen document to stop audio
+    chrome.runtime.sendMessage({
+        type: 'STOP_BELL'
     });
 }
 

@@ -26,11 +26,23 @@
         </div>
 
         <div class="setting-group">
+            <label for="bell-sounds">Number of Bell Sounds</label>
+            <select id="bell-sounds">
+                <option value="1">1 sound</option>
+                <option value="2">2 sounds</option>
+                <option value="3" selected>3 sounds</option>
+            </select>
+        </div>
+
+        <div class="setting-group">
             <label for="volume">Volume: <span id="volume-value">80%</span></label>
             <input type="range" id="volume" min="0" max="1" step="0.1" value="0.8">
         </div>
 
-        <button id="test-btn">Test Bell</button>
+        <div class="button-group">
+            <button id="test-btn">Test Bell</button>
+            <button id="stop-btn" class="stop-btn">Stop Bell</button>
+        </div>
 
         <div id="status" class="hidden">Saved!</div>
     </div>
